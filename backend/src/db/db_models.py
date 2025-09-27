@@ -2,8 +2,12 @@ from alchemical.aio import Alchemical
 from sqlalchemy import ForeignKey
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from uuid import UUID, uuid4
+from pathlib import Path
 
-db = Alchemical("sqlite:///backend//src//db//instance//addressbook.db")
+_instance_dir = Path(__file__).resolve().parent / "instance"
+_instance_dir.mkdir(parents=True, exist_ok=True)
+_db_path = (_instance_dir / "addressbook.db").as_posix()
+db = Alchemical(f"sqlite:///{_db_path}")
 
 class User(db.Model):
     __tablename__ = "users"
