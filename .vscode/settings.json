@@ -1,5 +1,6 @@
 {
     "python.analysis.autoImportCompletions": true,
     "git.ignoreLimitWarning": true,
-    "python.analysis.typeCheckingMode": "off"
+    "python.analysis.typeCheckingMode": "off",
+    "python.terminal.activateEnvironment": false
 }
